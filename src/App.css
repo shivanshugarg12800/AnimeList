@@ -1,38 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: dodgerblue;
+  font-family: "Roboto", "sans-serif";
+}
 .App {
-  text-align: center;
+  align-items: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.mainContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 30px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+}
+.cardContainer {
+  width: 230px;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: white;
+  align-items: center;
+  text-align: center;
+}
+.imgContainer {
+  width: 100%;
+}
+.text h1 {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.imgContainer img {
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+}
+.btn {
+  font-size: 30px;
+  padding: 15px;
+  border-radius: 50%;
+  background-color: rgb(218, 58, 58);
   color: white;
+  border: none;
+  margin-top: 20px;
+  margin-left: 5%;
+  cursor: pointer;
+}
+.btn2 {
+  font-size: 20px;
+  padding: 10px;
+  background-color: rgb(207, 205, 205);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn2:hover {
+  background-color: rgb(184, 184, 184);
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  font-size: 20px;
+  padding: 10px;
+  width: 300px;
+  outline: none;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 35%;
+}
+.searchComp h1 {
+  text-transform: uppercase;
+  color: rgb(224, 224, 224);
+  font-size: 30px;
+  margin: 10px auto;
+  margin-left: 40%;
+}
+.searchComp span {
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 600px) {
+  .mainContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (min-width: 900px) {
+  .mainContainer {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
