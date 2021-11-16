@@ -12,7 +12,6 @@ body {
   align-items: center;
 }
 .mainContainer {
-  max-width: 1000px;
   margin: 0 auto;
   display: grid;
   grid-gap: 30px;
@@ -71,7 +70,6 @@ input {
   border: none;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 35%;
 }
 .searchComp h1 {
   text-transform: uppercase;
@@ -83,14 +81,35 @@ input {
 .searchComp span {
   color: black;
 }
-
+@media (min-width: 100px) {
+  input {
+    margin-left: 15%;
+  }
+}
 @media (min-width: 600px) {
   .mainContainer {
     grid-template-columns: repeat(2, 1fr);
+    width: 500px;
+  }
+  input {
+    margin-left: 25%;
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 800px) {
+  .mainContainer {
+    grid-template-columns: repeat(3, 1fr);
+    width: 700px;
+  }
+  input {
+    margin-left: 30%;
+  }
+}
+@media (min-width: 1055px) {
   .mainContainer {
     grid-template-columns: repeat(4, 1fr);
+    width: 1000px;
+  }
+  input {
+    margin-left: 35%;
   }
 }
