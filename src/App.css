@@ -12,7 +12,7 @@ body {
   align-items: center;
 }
 .mainContainer {
-  margin: 0 auto;
+  margin: 10px auto;
   display: grid;
   grid-gap: 30px;
   align-items: center;
@@ -20,8 +20,8 @@ body {
   /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
 }
 .cardContainer {
-  width: 230px;
-  height: 30vw;
+  width: 240px;
+  height: 420px;
   border-radius: 20px;
   background-color: white;
   display: flex;
@@ -40,7 +40,7 @@ body {
 .imgContainer img {
   border-radius: 20px 20px 0 0;
   width: 100%;
-  height: 23vw;
+  height: 330px;
   object-fit: cover;
 }
 .btn {
