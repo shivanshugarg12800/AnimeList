@@ -82,6 +82,13 @@ input {
   margin: 10px auto;
   margin-left: 40%;
 }
+.searchComp h4 {
+  color: rgb(224, 224, 224);
+  font-size: 15px;
+  font-weight: lighter;
+  margin: 10px auto;
+  margin-left: 30%;
+}
 .searchComp span {
   color: black;
 }

@@ -1,37 +1,47 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-
-const Search = ({ setFilteredAnimes }) => {
-  // getting all the animes
-  const animes = useSelector((state) => state.allAnimes.animes);
+import { useSelector, useDispatch } from "react-redux";
+import { setAnimes } from "../redux/actions/actions";
+const Search = () => {
   // states
   const [searchItem, setSearchItem] = useState("");
-  // function to filterAnime
-  const filterAnime = () => {
-    const newAnimes = animes.filter((anime) => {
-      if (anime.title.toLowerCase().includes(searchItem.toLowerCase()))
-        return anime;
-      else if (searchItem === "") return anime;
-    });
-    setFilteredAnimes(newAnimes);
+  const [url, setUrl] = useState("");
+  // getting all the animes
+
+  const animes = useSelector((state) => state);
+  // calling the dispatch instant
+  const dispatch = useDispatch();
+
+  // FUNCTIONS.................
+  const HandleSearch = (e) => {
+    e.preventDefault();
+
+    FetchAnime(searchItem);
+    setUrl(`https://api.jikan.moe/v3/search/anime?q=${searchItem}&limit=20`);
   };
 
+  const FetchAnime = async (query) => {
+    const temp = await fetch(
+      `https://api.jikan.moe/v3/search/anime?q=${query}}&limit=20`
+    ).then((res) => res.json());
+
+    dispatch(setAnimes(temp.results));
+  };
+  console.log("ALL THE ANIMES", animes);
   return (
     <div className="searchComp">
       <h1>
         The <span>Anime </span>List
       </h1>
-      <input
-        type="text"
-        placeholder="Search.."
-        onChange={(e) => setSearchItem(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.code === "Enter") filterAnime();
-        }}
-      ></input>
-      <button className="btn2" onClick={filterAnime}>
-        Submit
-      </button>
+      <form className="search-box" onSubmit={HandleSearch}>
+        <input
+          type="search"
+          placeholder="Search for an anime..."
+          required
+          value={searchItem}
+          onChange={(e) => setSearchItem(e.target.value)}
+        />
+      </form>
+      <h4>API Call : {url}</h4>
     </div>
   );
 };
