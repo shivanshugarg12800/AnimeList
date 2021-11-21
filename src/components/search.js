@@ -16,12 +16,12 @@ const Search = () => {
     e.preventDefault();
 
     FetchAnime(searchItem);
-    setUrl(`https://api.jikan.moe/v3/search/anime?q=${searchItem}&limit=20`);
+    setUrl(`https://api.jikan.moe/v3/search/anime?q=${searchItem}`);
   };
 
   const FetchAnime = async (query) => {
     const temp = await fetch(
-      `https://api.jikan.moe/v3/search/anime?q=${query}}&limit=20`
+      `https://api.jikan.moe/v3/search/anime?q=${query}}`
     ).then((res) => res.json());
 
     dispatch(setAnimes(temp.results));
